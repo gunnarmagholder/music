@@ -1,0 +1,20 @@
+<h1>Editing piece</h1>
+
+<% form_for(@piece) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_field :notes %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @piece %> |
+<%= link_to 'Back', pieces_path %>

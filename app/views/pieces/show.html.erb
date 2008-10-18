@@ -1,0 +1,13 @@
+<p>
+  <b>Notes:</b>
+  <%=h @piece.notes %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @piece.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_piece_path(@piece) %> |
+<%= link_to 'Back', pieces_path %>

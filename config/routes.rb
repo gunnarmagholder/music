@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :pieces
+
+  map.resources :categories
+
+  map.resources :titles
+
+  map.resources :interprets
+
   map.home '', :controller => 'root', :action => 'index'
   
   map.resources :users
