@@ -1,0 +1,127 @@
+
+
+h1 {
+	border-bottom: medium dotted green;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+th, tr {
+  align:left;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+*/
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#nav {
+  color: black;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+#nav a, #nav a:visited {
+  color: maroon;
+  text-decoration: none;
+}
+
+#nav a:hover {
+  border-bottom: 2px dotted maroon;
+}
+
+#main_content p {
+	font-family: sans-serif;
+	background: light-gray;
+	margin: 0 auto;
+	text-align: left;
+	width: 500px;
+}
+
+#main_content th, tr {
+  align:left;
+}
+#faq p {
+	font-family: sans-serif;
+	background: light-gray;
+	margin: 0 auto;
+	text-align: left;
+	width: 600px;
+}
+#faq ftitle {
+	font-family: sans-serif;
+	background: light-gray;
+	margin: 0 auto;
+	text-align: left;
+	font-effect: emboss;
+	width: 600px;
+}
+
+div.autocomplete {
+	position: absolute;
+	width: 250px;
+	background-color: white;
+	border: 1px solid #888;
+	margin: 0px;
+	padding:0px;
+}
+div.autocomplete ul {
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+}
+div.autocomplete ul li.selected { background-color: #ffb;}
+div.autocomplete ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding:2px;
+  height:32px;
+  cursor:pointer;
+}
