@@ -1,4 +1,4 @@
-class Pieces < ActiveRecord::Base
+class Piece < ActiveRecord::Base
   belongs_to :user, :class_name => "User", :foreign_key => "user_id"
   belongs_to :title, :class_name => "Title", :foreign_key => "title_id"
   belongs_to :interpret, :class_name => "Interpret", :foreign_key => "interpret_id"
@@ -22,4 +22,13 @@ class Pieces < ActiveRecord::Base
   def title_name=(name)
     self.title = Title.find_or_create_by_name(name) unless name.blank?
   end
+  
+  def category_name
+    category.name if category
+  end
+  
+  def category_name=(name)
+    self.category = Category.find_or_create_by_name(name) unless name.blank?
+  end
+  
 end

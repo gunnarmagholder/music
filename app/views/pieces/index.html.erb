@@ -1,4 +1,7 @@
 <h1>Listing pieces</h1>
+<p>
+	Please find below a list of pieces, you own. You can edit them if you want to, and feel free to include as many pieces as you like (or own)
+</p>
 
 <table>
   <tr>
@@ -6,15 +9,8 @@
     <th>User</th>
   </tr>
 
-<% for piece in @pieces %>
-  <tr>
-    <td><%=h piece.notes %></td>
-    <td><%=h piece.user_id %></td>
-    <td><%= link_to 'Show', piece %></td>
-    <td><%= link_to 'Edit', edit_piece_path(piece) %></td>
-    <td><%= link_to 'Destroy', piece, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<%= render :partial => '_list' %>
+
 </table>
 
 <br />

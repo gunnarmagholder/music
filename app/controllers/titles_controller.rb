@@ -2,11 +2,12 @@ class TitlesController < ApplicationController
   # GET /titles
   # GET /titles.xml
   def index
-    @titles = Title.find(:all)
+    @titles = Title.find(:all, :conditions => ['name LIKE ?' , "%#{params[:search]}%"])
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @titles }
+      format.js
     end
   end
 

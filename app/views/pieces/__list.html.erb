@@ -1,0 +1,9 @@
+<% for piece in @pieces %>
+  <tr>
+    <td><%=h piece.notes %></td>
+    <td><%=h piece.interpret.name %></td>
+     <td><%=h piece.title.name %></td>
+    <td><%= link_to 'Edit', edit_piece_path(piece) %></td>
+    <td><%= link_to 'Destroy', piece, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>

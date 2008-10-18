@@ -7,10 +7,16 @@
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </p>
+  <%= f.hidden_field :user_id %>
   <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= f.label :interpret_name %><br />
+    <%= text_field_with_auto_complete :piece, :interpret_name, {:size => 15 }, {:url => formatted_interprets_path(:js), :method => :get, :param_name => 'search' } %>
   </p>
+  <p>
+    <%= f.label :title_name %><br />
+    <%= text_field_with_auto_complete :piece, :title_name, {:size => 15 }, {:url => formatted_titles_path(:js), :method => :get, :param_name => 'search' } %>
+  </p>
+
   <p>
     <%= f.submit "Create" %>
   </p>

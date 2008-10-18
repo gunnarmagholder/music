@@ -8,9 +8,7 @@
 <% for interpret in @interprets %>
   <tr>
     <td><%=h interpret.name %></td>
-    <td><%= link_to 'Show', interpret %></td>
-    <td><%= link_to 'Edit', edit_interpret_path(interpret) %></td>
-    <td><%= link_to 'Destroy', interpret, :confirm => 'Are you sure?', :method => :delete %></td>
+
   </tr>
 <% end %>
 </table>

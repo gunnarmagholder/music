@@ -25,7 +25,7 @@ class PiecesController < ApplicationController
   # GET /pieces/new.xml
   def new
     @piece = Piece.new
-
+    @piece.user = current_user
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @piece }
@@ -45,7 +45,7 @@ class PiecesController < ApplicationController
     respond_to do |format|
       if @piece.save
         flash[:notice] = 'Piece was successfully created.'
-        format.html { redirect_to(@piece) }
+        format.html { redirect_to  pieces_path  }
         format.xml  { render :xml => @piece, :status => :created, :location => @piece }
       else
         format.html { render :action => "new" }
