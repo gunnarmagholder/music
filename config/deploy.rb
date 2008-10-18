@@ -24,7 +24,7 @@ namespace :deploy do
   
   task :after_symlink do
     %w[database.yml].each do |c|
-      run "ln -nsf /var/www/apps/music/system/config/#{c} #{current_path}/config/#{c}"
+      run "ln -nsf #{current_path}/config/#{c} /var/www/apps/music/system/config/#{c} "
     end
   end
 end
