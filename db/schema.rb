@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081018155124) do
+ActiveRecord::Schema.define(:version => 20081018183616) do
 
   create_table "users", :force => true do |t|
     t.string   "login"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20081018155124) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
+    t.string   "name"
+    t.string   "lastname"
   end
 
 end

@@ -15,6 +15,7 @@
 		<%= link_to "Home",     :controller => "root", :action => "index" %> |
 		<% if logged_in?%>  
 	      <%= link_to "(y)ourMusic", :controller => "users", :action => "show", :id => current_user %> |
+          <%= link_to 'Logout', logout_path %> |
     	<% else %>
           <%= link_to 'Login', login_path %> | 
           <%= link_to 'Sign_up', signup_path %> |
@@ -45,7 +46,7 @@
   <!--end navBar div -->
   <div id="headlines">
     <h3>Last actions</h3>
-    <p>New Member: gmagholder</p>
+    <p>New Member: <%= User.last.login %> </p>
     
   </div>
   <!--end headlines -->
