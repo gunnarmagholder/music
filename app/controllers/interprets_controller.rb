@@ -1,4 +1,5 @@
 class InterpretsController < ApplicationController
+before_filter :login_required
   # GET /interprets
   # GET /interprets.xml
   def index

@@ -1,4 +1,5 @@
 class TitlesController < ApplicationController
+before_filter :login_required
   # GET /titles
   # GET /titles.xml
   def index

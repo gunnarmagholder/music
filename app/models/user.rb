@@ -2,10 +2,11 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
+  cattr_accessor :current_user
   has_many :pieces
   has_many :categories
 
-  validates_presence_of     :login, :email, :name, :lastname
+  validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?

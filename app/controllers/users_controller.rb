@@ -11,14 +11,19 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
+    @user.role = "User"
     @user.save
     if @user.errors.empty?
       self.current_user = @user
-      redirect_back_or_default('/')
+      redirect_to(@user)
       flash[:notice] = "Thanks for signing up!"
     else
       render :action => 'new'
     end
+  end
+
+  def show
+    @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id])
   end
 
 end

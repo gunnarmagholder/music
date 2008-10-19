@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
+before_filter :login_required
   # GET /categories
   # GET /categories.xml
   def index
-    @categories = Category.find(:all, :conditions => ['name LIKE ?' , "%#{params[:search]}%"])
+    @categories = Category.find(:all, :conditions => ['name LIKE ? ', "%#{params[:search]}%"])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +27,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.xml
   def new
     @category = Category.new
-
+    @category.user = current_user
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @category }

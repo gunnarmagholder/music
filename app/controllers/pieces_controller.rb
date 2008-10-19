@@ -1,9 +1,13 @@
 class PiecesController < ApplicationController
+  before_filter :login_required
   # GET /pieces
   # GET /pieces.xml
   def index
-    @pieces = Piece.find(:all)
-
+    if admin?
+      @pieces = Piece.find(:all)
+    else
+      @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @pieces }
@@ -62,7 +66,7 @@ class PiecesController < ApplicationController
     respond_to do |format|
       if @piece.update_attributes(params[:piece])
         flash[:notice] = 'Piece was successfully updated.'
-        format.html { redirect_to(@piece) }
+        format.html { redirect_to  pieces_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

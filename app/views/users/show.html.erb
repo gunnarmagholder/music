@@ -1,0 +1,18 @@
+<h1>Welcome <%= current_user.login %></h1>
+<p>This is your Dashboard for everything m4tc.</p>
+
+<h3>Listing your pieces</h3>
+<table>
+    <tr>
+      <th>Notes</th>
+      <th>Interpret</th>
+      <th>Title</th>
+    </tr>
+    <% if @pieces %>
+      <%= render :partial => 'pieces/_list' %>
+    <% else %>
+      <i>There are no pieces jet</i><br />
+    <% end %>
+</table>
+<br />
+<%= link_to 'New piece', new_piece_path %>

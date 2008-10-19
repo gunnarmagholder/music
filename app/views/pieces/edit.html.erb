@@ -3,14 +3,26 @@
 <% form_for(@piece) do |f| %>
   <%= f.error_messages %>
 
+  
+  <p>
+    <%= f.label :interpret_name %><br />
+    <%= text_field_with_auto_complete :piece, :interpret_name, {:size => 15 }, {:url => formatted_interprets_path(:js), :method => :get, :param_name => 'search' } %>
+  </p>
+  <p>
+    <%= f.label :title_name %><br />
+    <%= text_field_with_auto_complete :piece, :title_name, {:size => 15 }, {:url => formatted_titles_path(:js), :method => :get, :param_name => 'search' } %>
+  </p>
+  <p>
+    <%= f.label :category_name %><br />
+    <%= text_field_with_auto_complete :piece, :category_name, {:size => 15 }, {:url => formatted_titles_path(:js), :method => :get, :param_name => 'search' } %>
+  </p>
   <p>
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
+
+  <%= f.hidden_field :user_id %>
+
   <p>
     <%= f.submit "Update" %>
   </p>
