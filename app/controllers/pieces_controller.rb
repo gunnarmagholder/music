@@ -7,7 +7,7 @@ class PiecesController < ApplicationController
       @pieces = Piece.find(:all)
     else
       if (params[:title_id])
-        @pieces = Piece.find(:all, :conditions => ['title_id=?' , params[:title_id])
+        @pieces = Piece.find(:all, :conditions => ['title_id=?' , params[:title_id]])
       else
         @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id])
       end
