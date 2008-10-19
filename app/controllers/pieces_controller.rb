@@ -9,7 +9,33 @@ class PiecesController < ApplicationController
       if (params[:title_id])
         @pieces = Piece.find(:all, :conditions => ['title_id=?' , params[:title_id]])
       else
-        @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id])
+        if (params[:ftt_id])
+            if Piece.find_by_id(params[:ftt_id])!=nil
+              tpiece=Piece.find_by_id(params[:ftt_id])
+              ttitle=tpiece.title.id
+              tpieces = Piece.find(:all, :conditions => ['title_id=?', ttitle])
+              tusers = Hash.new
+              ttpieces=Array.new
+              tpieces.each {|p| tusers[p.user.id] = p.category.id if p.user.id != current_user.id}
+              tusers.each {|userkey, categorykey| User.find_by_id(userkey).pieces.each { |p| ttpieces.push(p) if p.category.id != categorykey } }
+              @pieces = ttpieces
+            end
+        else
+          if (params[:fet_id])
+            if Piece.find_by_id(params[:fet_id]) != nil
+              tpiece=Piece.find_by_id(params[:fet_id])
+              ttitle=tpiece.title.id
+              tpieces = Piece.find(:all, :conditions => ['title_id=?', ttitle])
+              tusers = Hash.new
+              ttpieces=Array.new
+              tpieces.each {|p| tusers[p.user.id] = p.category.id if p.user.id != current_user.id}
+              tusers.each {|userkey, categorykey| User.find_by_id(userkey).pieces.each { |p| ttpieces.push(p) if p.category.id == categorykey } }
+              @pieces = ttpieces
+            end
+            else
+              @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id])
+            end
+        end
       end
     end
     respond_to do |format|
@@ -90,5 +116,15 @@ class PiecesController < ApplicationController
       format.html { redirect_to(pieces_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def ftt
+    tpiece=Piece.find_by_id(16)
+    ttitle=tpiece.title.id
+    tpieces = Piece.find(:all, :conditions => ['title_id=?', ttitle])
+    tusers = Hash.new
+    ttpieces=Array.new
+    tpieces.each {|p| tusers[p.user.id] = p.category.id if p.user.id != current_user.id}
+    tusers.each {|userkey, categorykey| User.find_by_id(userkey).pieces.each { |p| ttpieces.push(p) if p.category.id != categorykey } }
   end
 end

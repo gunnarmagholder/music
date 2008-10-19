@@ -6,6 +6,7 @@
 	 in reply to an existing email.</p>
 <hr />
 <h2>Message Center</h2>
+Here are the messages, that travelled inside music 4 the classes. 
 <table>
   <tr>
 	<% if @inbox %>
@@ -40,6 +41,8 @@
 </table>
 <hr />
 <h3>Listing your pieces</h3>
+<p>These are the pieces of music, you entered into our sytem. In most cases, you will own this particular piece of music.</p>
+
 <table>
     <tr>
       <th>Notes</th>
@@ -53,5 +56,6 @@
       <i>There are no pieces jet</i><br />
     <% end %>
 </table>
+<p>TT = search transitive Taste, ET = search Equal Taste</p>
 <br />
 <%= link_to 'New piece', new_piece_path %>

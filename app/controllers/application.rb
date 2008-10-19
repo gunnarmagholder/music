@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'b27437ee77ee283ec6faec4a018223a3'
   filter_parameter_logging :password
-  
+
   protected
     def admin?
       if logged_in?

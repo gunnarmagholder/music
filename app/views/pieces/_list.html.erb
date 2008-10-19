@@ -6,5 +6,7 @@
     <td><%=h piece.category.name %></td>    
     <td><%= link_to 'Edit', edit_piece_path(piece) %></td>
     <td><%= link_to 'Destroy', piece, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><a href=<%= "/pieces?ftt_id="+ piece.id.to_s %>>TT</a></td>
+    <td><a href=<%= "/pieces?fet_id="+ piece.id.to_s %>>ET</a></td>
   </tr>
 <% end %>
