@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081018212759) do
+ActiveRecord::Schema.define(:version => 20081019095504) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(:version => 20081018212759) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "open_id_authentication_associations", :force => true do |t|
+    t.integer "issued"
+    t.integer "lifetime"
+    t.string  "handle"
+    t.string  "assoc_type"
+    t.binary  "server_url"
+    t.binary  "secret"
+  end
+
+  create_table "open_id_authentication_nonces", :force => true do |t|
+    t.integer "timestamp",  :null => false
+    t.string  "server_url"
+    t.string  "salt",       :null => false
   end
 
   create_table "pieces", :force => true do |t|
@@ -51,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20081018212759) do
     t.datetime "remember_token_expires_at"
     t.string   "name"
     t.string   "lastname"
+    t.string   "identity_url"
   end
 
 end
