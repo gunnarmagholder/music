@@ -11,13 +11,29 @@
 	<% if @inbox %>
   	<td>
   		<h4>Inbox</h4>
-		<%= render :partial => "messages/inbox", :collection => @inbox %>
-  	</td>
+		<table>
+		  <tr>	
+		    <th>Sender</th>
+		    <th>Text</th>
+		    <th>Status</th>
+		  </tr>
+		    <% @messages = @inbox %>
+		    <%= render :partial => "messages/inbox" %>
+  	    </table>
+    </td>
     <% end %>
     <% if @outbox %>
-    <td>
-    	<h4>Outbox</h4>
-		<%= render :partial => "messages/outbox", :collection => @outbox %>
+  	<td>
+  		<h4>Outbox</h4>
+		<table>
+		  <tr>	
+		    <th>Receiver</th>
+		    <th>Text</th>
+		    <th>Status</th>
+		  </tr>
+		    <% @messages = @outbox %>
+		    <%= render :partial => "messages/outbox" %>
+  	    </table>
     </td>
     <% end %>
   </tr>
@@ -29,6 +45,7 @@
       <th>Notes</th>
       <th>Interpret</th>
       <th>Title</th>
+      <th>Category</th>
     </tr>
     <% if @pieces %>
       <%= render :partial => 'pieces/list' %>

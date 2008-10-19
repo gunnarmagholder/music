@@ -2,20 +2,18 @@
 
 <% form_for(@message) do |f| %>
   <%= f.error_messages %>
-
+  <%  logger.debug("Entering Message Form" ) %>
   <p>
     <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <%= f.text_area :text, :cols=>40, :rows => 10 %>
   </p>
-
   <%= f.hidden_field :sent_user %>
-  <%= f.hidden_field :read %>
+  <%= f.hidden_field :recv_user %>
 
-  
 
   <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', messages_path %>
+

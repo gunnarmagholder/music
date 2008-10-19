@@ -23,9 +23,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id])
-    @inbox = Message.find(:all, :conditions => ['recv_user=?', current_user.id])
-    @outbox = Message.find(:all, :conditions => ['sent_user=?', current_user.id])
+    @pieces = Piece.find(:all, :conditions => ['user_id=?' , current_user.id]) 
+    @inbox = Message.find(:all, :conditions => ['recv_user=?', current_user.id]) 
+    @outbox = Message.find(:all, :conditions => ['sent_user=?', current_user.id]) 
   end
 
 end

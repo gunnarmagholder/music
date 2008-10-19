@@ -4,5 +4,6 @@
     <td><%=h piece.title.name %></td>
     <td><%=h piece.notes %></td>
     <td><%=h piece.user.login %></td>
+    <td><a href="<%= "/messages/new?receiver=" + piece.user.id.to_s %>">Send Mail to Owner</a></td>
   </tr>
 <% end %>

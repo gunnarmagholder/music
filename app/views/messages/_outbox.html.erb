@@ -1,9 +1,13 @@
 <% for message in @messages %>
   <tr>
-	<td><%=h User.find_by_id(recv_user).login  %></td>
-    <td><%=h message.text %></td>
-    <td><%= link_to 'Show', message %></td>
-    <td><%= link_to 'Edit', edit_message_path(message) %></td>
-    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%=h User.find_by_id(message.recv_user).login  %></td>
+    <td><a href="<%= "/messages/show/" + message.id.to_s %>"><%= message.text[0..10] %></a></td>
+	<td>
+		<% if message.read %>
+			read
+		<% else %>
+		    unread
+		<% end %>
+	</td>
   </tr>
 <% end %>
