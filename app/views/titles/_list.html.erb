@@ -1,6 +1,7 @@
 <% for title in @titles %>
   <tr>
-    <td><%=h title.name %></td>
+	<% search_string = "/pieces?title_id=" + title.id.to_s %>
+    <td><a href="<%= search_string %>"><%=h title.name %></a></td>
     <td align="right"><%=h title.occurences %></td>
 	<% if current_user.role=="Admin" %>
       <td><%= link_to 'Show', title %></td>

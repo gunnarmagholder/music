@@ -53,7 +53,7 @@ class PiecesController < ApplicationController
     respond_to do |format|
       if @piece.save
         flash[:notice] = 'Piece was successfully created.'
-        format.html { redirect_to  pieces_path  }
+        format.html { redirect_to  :controller => "users", :action => "show", :id => current_user  }
         format.xml  { render :xml => @piece, :status => :created, :location => @piece }
       else
         format.html { render :action => "new" }
