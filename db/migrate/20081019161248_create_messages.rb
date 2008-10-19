@@ -1,4 +1,5 @@
 class CreateMessages < ActiveRecord::Migration
+  # no idea 
   def self.up
     create_table :messages do |t|
       t.string :text
