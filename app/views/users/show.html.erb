@@ -1,6 +1,28 @@
 <h1>Welcome <%= current_user.login %></h1>
 <p>This is your Dashboard for everything m4tc.</p>
-
+<p>Here you'll find the music, that you entered and your Inbox/Outbox. 
+	You will notice, that there is no "Send Message"-Button. Mails can 
+	only be sent while searching for music (sending to the owner of a title) or
+	 in reply to an existing email.</p>
+<hr />
+<h2>Message Center</h2>
+<table>
+  <tr>
+	<% if @inbox %>
+  	<td>
+  		<h4>Inbox</h4>
+		<%= render :partial => "messages/inbox", :collection => @inbox %>
+  	</td>
+    <% end %>
+    <% if @outbox %>
+    <td>
+    	<h4>Outbox</h4>
+		<%= render :partial => "messages/outbox", :collection => @outbox %>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<hr />
 <h3>Listing your pieces</h3>
 <table>
     <tr>
