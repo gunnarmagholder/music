@@ -3,7 +3,7 @@ before_filter :login_required
   # GET /categories
   # GET /categories.xml
   def index
-    @categories = Category.find(:all, :conditions => ['name LIKE ? ', "%#{params[:search]}%"])
+    @categories = Category.find(:all, :conditions => ['name LIKE ? ', "%#{params[:search]}%"], :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb

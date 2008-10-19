@@ -3,7 +3,7 @@ before_filter :login_required
   # GET /interprets
   # GET /interprets.xml
   def index
-    @interprets = Interpret.find(:all, :conditions => ['name LIKE ?' , "%#{params[:search]}%"])
+    @interprets = Interpret.find(:all, :conditions => ['name LIKE ?' , "%#{params[:search]}%"], :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb

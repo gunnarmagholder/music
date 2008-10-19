@@ -13,6 +13,7 @@ class PiecesController < ApplicationController
       end
     end
     respond_to do |format|
+      @pieces.sort {|x,y| x.title.name <=> y.title.name }
       format.html # index.html.erb
       format.xml  { render :xml => @pieces }
     end

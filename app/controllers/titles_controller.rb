@@ -3,8 +3,8 @@ before_filter :login_required
   # GET /titles
   # GET /titles.xml
   def index
-    @titles = Title.find(:all, :conditions => ['name LIKE ?' , "%#{params[:search]}%"])
-
+    @titles = Title.find(:all, :conditions => ['name LIKE ?' , "%#{params[:search]}%"], :order => 'name ASC')
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @titles }
