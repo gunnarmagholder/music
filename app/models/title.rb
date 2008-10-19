@@ -3,7 +3,12 @@ class Title < ActiveRecord::Base
   has_many :pieces
   
   def occurences
-    Pieces.find_by_title_id(self.id).size
+    pieces = Piece.find(:all, :conditions => ['title_id = ?' , self.id])
+    if pieces.class == Array
+      pieces.size
+    else
+      1
+    end
   end
   
 end

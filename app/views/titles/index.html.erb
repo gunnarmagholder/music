@@ -3,15 +3,13 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Occurence</th>
   </tr>
 
-<% for title in @titles %>
-  <tr>
-    <td><%=h title.name %></td>
-  </tr>
-<% end %>
+<%= render :partial => 'list' %>
+
 </table>
 
 <br />
 
-<%= link_to 'New title', new_title_path %>
+

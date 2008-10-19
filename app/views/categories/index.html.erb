@@ -3,15 +3,18 @@
 <table>
   <tr>
     <th>Name</th>
-    
+    <th>Occurences</th>
   </tr>
 
 <% for category in @categories %>
   <tr>
     <td><%=h category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%=h category.occurences %></td>
+	<% if current_user.role=="Admin" %>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

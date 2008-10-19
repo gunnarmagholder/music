@@ -3,12 +3,18 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Occurences</th>
   </tr>
 
 <% for interpret in @interprets %>
   <tr>
     <td><%=h interpret.name %></td>
-
+    <td align="right"><%=h interpret.occurences %></td>
+	<% if current_user.role=="Admin" %>
+      <td><%= link_to 'Show', interpret %></td>
+      <td><%= link_to 'Edit', edit_interpret_path(interpret) %></td>
+      <td><%= link_to 'Destroy', interpret, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
